@@ -53,6 +53,17 @@ body {
     padding-top: 165px;
   }
 }
+fieldset {
+  border: 0;
+}
+
+.fs-title {
+  margin: 0 0 1em 0;
+  font-weight: 600;
+  font-size: xx-large;
+  color: rgb(64, 112, 244);
+}
+
 .card-form__row {
   display: flex;
   align-items: flex-start;
@@ -507,6 +518,13 @@ body {
 .card-input {
   margin-bottom: 20px;
 }
+.group {
+  display: flex;
+  gap: 20px;
+}
+.col {
+  width: 50%;
+}
 .card-input__label {
   font-size: 14px;
   margin-bottom: 5px;
@@ -528,6 +546,9 @@ body {
   background: none;
   color: #1a3b5d;
   font-family: "Source Sans Pro", sans-serif;
+}
+::placeholder {
+  color: rgb(199, 199, 199);
 }
 .card-input__input:hover, .card-input__input:focus {
   border-color: #3d9cff;

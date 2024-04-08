@@ -31,64 +31,74 @@
         <!---------------------FIRST FORM------------------------->
         <div class="card-form"> 
             <div class="card-form__inner">
-                <h2 class="fs-title">Personal Information</h2>
-                <div class="card-input">
-                    <label for="cardNumber" class="card-input__label">Card Number</label> 
-                    <input type="text" id="cardNumber" data-ref="cardNumber" autocomplete="off" class="card-input__input">
-                </div> 
-                <div class="card-input">
-                    <label for="cardName" class="card-input__label">Card Holders</label> 
-                    <input type="text" id="cardName" data-ref="cardName" autocomplete="off" class="card-input__input">
-                </div> 
-                <div class="card-form__row">
-                    <div class="card-form__col">
-                        <div class="card-form__group">
-                            <label for="cardMonth" class="card-input__label">Expiration Date</label> 
-                            <select id="cardMonth" data-ref="cardDate" class="card-input__input -select">
-                                <option value="" disabled="disabled" selected="selected">Month</option> 
-                                <option value="01">01</option>
-                                <option value="02">02</option>
-                                <option value="03">03</option>
-                                <option value="04">04</option>
-                                <option value="05">05</option>
-                                <option value="06">06</option>
-                                <option value="07">07</option>
-                                <option value="08">08</option>
-                                <option value="09">09</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select> 
-                            <select id="cardYear" data-ref="cardDate" class="card-input__input -select">
-                                <option value="" disabled="disabled" selected="selected">Year</option>
-                                <option value="2024">2024</option>
-                                <option value="2025">2025</option>
-                                <option value="2026">2026</option>
-                                <option value="2027">2027</option>
-                                <option value="2028">2028</option>
-                                <option value="2029">2029</option>
-                                <option value="2030">2030</option>
-                                <option value="2031">2031</option>
-                                <option value="2032">2032</option>
-                                <option value="2033">2033</option>
-                                <option value="2034">2034</option>
-                                <option value="2035">2035</option>
-                            </select>
-                            </div>
+                <fieldset>
+                    <legend class="fs-title">Personal Information</legend>
+                    <div class="group">
+                        <div class="card-input col">
+                            <label for="firstName" class="card-input__label col">First Name</label> 
+                            <input type="text" id="firstName" data-ref="cardNumber" class="card-input__input">
                         </div> 
-                <div class="card-form__col -cvv">
+                        <div class="card-input col">
+                            <label for="lastName" class="card-input__label col">Last Name</label> 
+                            <input type="text" id="lastName" data-ref="cardNumber" class="card-input__input">
+                        </div> 
+                    </div>          
                     <div class="card-input">
-                        <label for="cardCvv" class="card-input__label">CVV</label> 
-                        <input type="text" id="cardCvv" maxlength="4" autocomplete="off" class="card-input__input">
+                        <label for="studentNo" class="card-input__label">Student Number</label> 
+                        <input type="text" id="studentNo" data-ref="cardNumber" autocomplete="off" class="card-input__input">
+                    </div> 
+                    <div class="card-input">
+                        <label for="PUPwebmail" class="card-input__label">PUP Webmail Address</label> 
+                        <input type="email" id="PUPwebmail"  placeholder="@iskolarngbayan.pup.edu.ph" data-ref="cardName" autocomplete="off" class="card-input__input">
+                    </div> 
+                    <div class="card-form__row">
+                        <div class="card-form__col">
+                            <div class="card-form__group">
+                                <label for="campus" class="card-input__label">PUP Campus and Program</label> 
+                                <select id="campus" class="card-input__input -select">
+                                    <option value="" disabled="disabled" selected="selected">Campus</option>
+                                    <option value="pupTaguigCity">PUP Taguig City</option>
+                                    <option value="pupQuezonCity">PUP Quezon City</option>
+                                    <option value="pupSanJuanCity">PUP San Juan City</option>
+                                    <option value="pupParanaqueCity">PUP Parañaque City</option>
+                                </select>
+                                
+                                <select id="program" class="card-input__input -select">
+                                    <option value="" disabled="disabled" selected="selected">Program</option>
+                                    <option value="BSIT">BS in Information Technology</option>
+                                    <option value="BSCpE">BS in Computer Science</option>
+                                    <option value="BSIS">BS in Information Systems</option>
+                                    <option value="BSEEE">BS in Electronics Engineering</option>
+                                    <option value="BSEE">BS in Electrical Engineering</option>
+                                    <option value="BSME">BS in Mechanical Engineering</option>
+                                    <option value="BSIE">BS in Industrial Engineering</option>
+                                    <option value="BMANS">BS in Multimedia Arts & Sciences</option>
+                                    <option value="BSENTREP">BS in Entrepreneurship</option>
+                                </select>
+                                
+                                </div>
+                            </div> 
+                    <div class="card-form__col -cvv">
+                        <div class="card-input">
+                            <label for="section" class="card-input__label">Section</label> 
+                            <input type="text" placeholder="ex. 3-3"  id="section" maxlength="4" autocomplete="off" class="card-input__input">
+                        </div>
                     </div>
-                </div>
-
-            </div> 
+                </div> 
             <!-- <button class="card-form__button">Submit</button> -->
-            <div class="buttons">
-                <button id="prev" disabled>Prev</button>
-                <button id="next">Next</button>
-              </div>
+                <div class="buttons">
+                    <button id="prev" disabled>Prev</button>
+                    <button id="next">Next</button>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="card-input">
+                    <label for="studentNo" class="card-input__label">Student Number</label> 
+                    <input type="text" id="studentNo" data-ref="cardNumber" autocomplete="off" class="card-input__input">
+                </div>
+            </fieldset>
+
         </div>
     </div> 
 </div>
