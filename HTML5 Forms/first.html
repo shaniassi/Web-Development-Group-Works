@@ -26,7 +26,7 @@
               </div>
             </div>
             
-          </div>
+        </div>
 
         <!---------------------FIRST FORM------------------------->
         <div class="card-form"> 
@@ -90,18 +90,103 @@
                     <button id="prev" disabled>Prev</button>
                     <button id="next">Next</button>
                 </div>
-            </fieldset>
+                </fieldset>
+                <!-- Step 2: Experience and Interests -->
+                <fieldset>
+                    <legend class="fs-title">Experience and Interests</legend>
+                    <div class="form-group">
+                       
+                    </div>
+                    <div class="card-input">
+                        <div class="question-radio-group">
+                            <label for="tech-conferences" class="card-input__label">Have you attended any tech conferences before?</label>
+                            <div class="radio-group">
+                                <input type="radio" id="conferenceYes" name="techConference" value="yes">
+                                <label for="conferenceYes">Yes</label>
+                                <input type="radio" id="conferenceNo" name="techConference" value="no">
+                                <label for="conferenceNo">No</label>
+                            </div>
+                        </div>
+                        <input type="text" id="tech-conferences" placeholder="If Yes, please specify the name(s)" data-ref="cardName" autocomplete="off" class="card-input__input">
+                    </div> 
 
-            <fieldset>
-                <div class="card-input">
-                    <label for="studentNo" class="card-input__label">Student Number</label> 
-                    <input type="text" id="studentNo" data-ref="cardNumber" autocomplete="off" class="card-input__input">
-                </div>
-            </fieldset>
+                    <div class="card-input">
+                        <label for="languages" class="card-input__label">What programming languages or frameworks are you familiar with?</label> 
+                        <input type="text" id="languages"  placeholder="e.g., Python, Java, React" data-ref="cardName" autocomplete="off" class="card-input__input">
+                    </div>
 
-        </div>
-    </div> 
-</div>
+                    <div class="card-input">
+                        <div class="question-radio-group">
+                            <label for="hackathons" class="card-input__label">Have you participated in any projects or hackathons?</label> 
+                            <div class="radio-group">
+                                <input type="radio" id="hackathonYes" name="hackathon" value="yes">
+                                <label for="hackathonYes">Yes</label>
+                                <input type="radio" id="hackathonNo" name="hackathon" value="no">
+                                <label for="hackathonNo">No</label>
+                            </div>
+                        </div>
+                        <input type="text" id="hackathons"  placeholder="If yes, please describe your involvement and any awards" data-ref="cardName" autocomplete="off" class="card-input__input">
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" id="prev">Previous</button>
+                        <button type="button" id="next">Next</button>
+                    </div>
+                </fieldset>
+
+                <!-- Step 3: Expectations for the Tech Conference -->
+                <fieldset>
+                    <legend class="fs-title">Expectations for the Tech Conference</legend>
+                    <div class="form-group">
+                    </div>
+                    <div class="card-input">
+                        <label for="conference-goals" class="card-input__label">What are your primary goals for attending the conference?</label> 
+                        <input type="text" id="conference-goals"  placeholder="e.g., Discovering new technologies, Building professional connections" data-ref="cardName" autocomplete="off" class="card-input__input">
+                    </div>
+
+                    <div class="card-input">
+                        <label for="sessions-interest" class="card-input__label">Are there any specific sessions or topics you're particularly interested in? Please specify.</label> 
+                        <input type="text" id="sessions-interest"  placeholder="e.g., Web Development and Design Trends, Data Science and Analytics" data-ref="cardName" autocomplete="off" class="card-input__input">
+                    </div>
+
+                    <div class="card-input">
+                        <label for="conference-gain" class="card-input__label">What do you hope to gain from your experience at the conference?</label> 
+                        <input type="text" id="conference-gain"  placeholder="e.g., Enhanced skills, Career insights" data-ref="cardName" autocomplete="off" class="card-input__input">
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" id="prev">Previous</button>
+                        <button type="button" id="next">Next</button>
+                    </div>
+                </fieldset>
+
+                <!-- Step 4: Terms and Conditions -->
+                <fieldset>
+                    <legend class="fs-title">Terms and Conditions</legend>
+                    <ol class="terms-list">
+                        <li>By registering for the conference, you agree to abide by all conference policies and guidelines.</li>
+                        <li>The organizers reserve the right to make changes to the conference schedule, sessions, or speakers if necessary.</li>
+                        <li>Registration fees are non-refundable, but substitutions are allowed.</li>
+                        <li>Attendees are responsible for their own travel and accommodation arrangements.</li>
+                        <li>The organizers are not liable for any loss, injury, or damage incurred during the conference.</li>
+                        <li>Photography and recording may occur during the conference for promotional purposes.</li>
+                        <li>Any inappropriate behavior or violation of the code of conduct may result in expulsion from the conference without refund.</li>
+                    </ol>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="agree-terms" name="agreeTerms">
+                        <label for="agree-terms">By checking this box, I agree to abide by the terms and conditions of the event.</label>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" id="prev">Previous</button>
+                        <button type="submit" id="submit">Submit</button>
+                    </div>
+                </fieldset>
+
+
+            </div>
+        </div> 
+    </div>
 
 
 <div id="tldx-toast-container"></div><style data-styled="active" data-styled-version="5.3.11"></style><scribe-shadow id="crxjs-ext" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 2147483647; overflow: visible;"></scribe-shadow><div id="tldx-webext-container"></div></body>
