@@ -31,25 +31,30 @@
         <!---------------------FIRST FORM------------------------->
         <div class="card-form"> 
             <div class="card-form__inner">
+                <form action="/collect_forms.php" target="_blank" method="post" required autocomplete="on">
                 <fieldset>
                     <legend class="fs-title">Personal Information</legend>
                     <div class="group">
                         <div class="card-input col">
                             <label for="firstName" class="card-input__label col">First Name</label> 
-                            <input type="text" id="firstName" data-ref="cardNumber" class="card-input__input">
+                            <input type="text" id="firstName" data-ref="cardNumber" class="card-input__input"
+                            maxlength="30" required autofocus>
                         </div> 
                         <div class="card-input col">
                             <label for="lastName" class="card-input__label col">Last Name</label> 
-                            <input type="text" id="lastName" data-ref="cardNumber" class="card-input__input">
+                            <input type="text" id="lastName" data-ref="cardNumber" class="card-input__input"
+                            size="30" required>
                         </div> 
                     </div>          
                     <div class="card-input">
                         <label for="studentNo" class="card-input__label">Student Number</label> 
-                        <input type="text" id="studentNo" data-ref="cardNumber" autocomplete="off" class="card-input__input">
+                        <input type="text" id="studentNo" data-ref="cardNumber" autocomplete="on" class="card-input__input"
+                         required>
                     </div> 
                     <div class="card-input">
                         <label for="PUPwebmail" class="card-input__label">PUP Webmail Address</label> 
-                        <input type="email" id="PUPwebmail"  placeholder="@iskolarngbayan.pup.edu.ph" data-ref="cardName" autocomplete="off" class="card-input__input">
+                        <input type="email" id="PUPwebmail"  placeholder="@iskolarngbayan.pup.edu.ph" autocomplete="on" class="card-input__input"
+                        required>
                     </div> 
                     <div class="card-form__row">
                         <div class="card-form__col">
@@ -57,6 +62,7 @@
                                 <label for="campus" class="card-input__label">PUP Campus and Program</label> 
                                 <select id="campus" class="card-input__input -select">
                                     <option value="" disabled="disabled" selected="selected">Campus</option>
+                                    <option value="pupTaguigCity">PUP Sta. Mesa (Main)</option>
                                     <option value="pupTaguigCity">PUP Taguig City</option>
                                     <option value="pupQuezonCity">PUP Quezon City</option>
                                     <option value="pupSanJuanCity">PUP San Juan City</option>
@@ -81,14 +87,15 @@
                     <div class="card-form__col -cvv">
                         <div class="card-input">
                             <label for="section" class="card-input__label">Section</label> 
-                            <input type="text" placeholder="ex. 3-3"  id="section" maxlength="4" autocomplete="off" class="card-input__input">
+                            <input type="text" placeholder="ex. 3-3"  id="section" maxlength="4" autocomplete="on" class="card-input__input"
+                            pattern="\d{1}-\d{1}" required>
                         </div>
                     </div>
                 </div> 
             <!-- <button class="card-form__button">Submit</button> -->
                 <div class="buttons">
-                    <button id="prev" disabled>Prev</button>
-                    <button id="next">Next</button>
+                    <button type="button" id="prev" disabled>Prev</button>
+                    <button type="button" id="next">Next</button>
                 </div>
                 </fieldset>
                 <!-- Step 2: Experience and Interests -->
@@ -107,7 +114,7 @@
                                 <label for="conferenceNo">No</label>
                             </div>
                         </div>
-                        <input type="text" id="tech-conferences" placeholder="If Yes, please specify the name(s)" data-ref="cardName" autocomplete="off" class="card-input__input">
+                        <input type="text" id="tech-conferences" placeholder="If Yes, please specify the name(s)" data-ref="cardName" autocomplete="on" class="card-input__input">
                     </div> 
 
                     <div class="card-input">
@@ -182,7 +189,7 @@
                         <button type="submit" id="submit">Submit</button>
                     </div>
                 </fieldset>
-
+                </form>
 
             </div>
         </div> 
