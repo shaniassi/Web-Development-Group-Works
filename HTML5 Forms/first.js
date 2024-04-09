@@ -94,9 +94,4 @@ document.addEventListener("DOMContentLoaded", function() {
     campus.addEventListener("change", toggleNextButton);
     program.addEventListener("change", toggleNextButton);
     section.addEventListener("input", handleInput);
-});
-
-	
-	
-	
-	
+});	
