@@ -95,17 +95,17 @@
             <!-- <button class="card-form__button">Submit</button> -->
                 <div class="buttons">
                     <button type="button" id="prev" disabled>Prev</button>
-                    <button type="next" id="next">Next</button>
+                    <button type="button" id="next">Next</button>
                 </div>
                 </fieldset>
+
+                
                 <!-- Step 2: Experience and Interests -->
                 <fieldset>
                     <legend class="fs-title">Experience and Interests</legend>
                     <div class="form-group">
-                       
                     </div>
-                    <div class="card-input">
-                        <div class="question-radio-group">
+                        <div class="card-input">
                             <label for="tech-conferences" class="card-input__label">Have you attended any tech conferences before?</label>
                             <div class="radio-group">
                                 <input type="radio" id="conferenceYes" required name="techConference" value="yes">
@@ -114,32 +114,87 @@
                                 <label for="conferenceNo">No</label>
                             </div>
                         </div>
-                        <input type="text" id="tech-conferences" placeholder="If Yes, please specify the name(s)" data-ref="cardName" autocomplete="on" class="card-input__input">
-                    </div> 
-
                     <div class="card-input">
-                        <label for="languages" class="card-input__label">What programming languages or frameworks are you familiar with?</label> 
-                        <input type="text" id="languages"  placeholder="e.g., Python, Java, React" data-ref="cardName" autocomplete="off" class="card-input__input" required>
+                        <label for="tech-conferences" class="card-input__label">If Yes, please specify the name(s)</label>
+                        <input type="text" id="tech-conferences" data-ref="cardName" autocomplete="on" class="card-input__input" required>
                     </div>
 
                     <div class="card-input">
-                        <div class="question-radio-group">
-                            <label for="hackathons" class="card-input__label">Have you participated in any projects or hackathons?</label> 
-                            <div class="radio-group">
-                                <input type="radio" id="hackathonYes" name="hackathon" value="yes">
-                                <label for="hackathonYes">Yes</label>
-                                <input type="radio" id="hackathonNo" name="hackathon" value="no">
-                                <label for="hackathonNo">No</label>
-                            </div>
+                        <label for="languages" class="card-input__label">What programming languages or frameworks are you familiar with?</label>
+                        <input type="text" id="languages" placeholder="e.g., Python, Java, React" data-ref="cardName" autocomplete="off" class="card-input__input" required>
+                    </div>
+
+                    <div class="card-input">
+                        <label for="hackathons" class="card-input__label">Have you participated in any projects or hackathons?</label>
+                        <div class="radio-group">
+                            <input type="radio" id="hackathonYes" name="hackathon" value="yes" required>
+                            <label for="hackathonYes">Yes</label>
+                            <input type="radio" id="hackathonNo" name="hackathon" value="no">
+                            <label for="hackathonNo">No</label>
                         </div>
-                        <input type="text" id="hackathons"  placeholder="If yes, please describe your involvement and any awards" data-ref="cardName" autocomplete="off" class="card-input__input">
+                    </div>
+                    <div class="card-input">
+                        <label for="hackathons" class="card-input__label">If yes, please describe your involvement and any awards</label>
+                        <input type="text" id="hackathons" placeholder="Description" data-ref="cardName" autocomplete="off" class="card-input__input" required>
                     </div>
 
                     <div class="buttons">
-                        <button type="button" id="prev">Previous</button>
-                        <button type="button" id="next">Next</button>
+                        <button type="button" id="prevStep2">Previous</button>
+                        <button type="button" id="nextStep2" disabled>Next</button>
                     </div>
                 </fieldset>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const conferenceYes = document.getElementById('conferenceYes');
+                        const hackathonYes = document.getElementById('hackathonYes');
+                        const nextBtnStep2 = document.getElementById('nextStep2');
+                        const techConferenceField = document.getElementById('tech-conferences');
+                        const hackathonsField = document.getElementById('hackathons');
+                        const languagesField = document.getElementById('languages');
+
+                        // Function to check if all required fields in step 2 are filled
+                        function checkAllFieldsFilledStep2() {
+                            const conferenceChecked = conferenceYes.checked;
+                            const hackathonChecked = hackathonYes.checked;
+            
+                            const techConferenceFilled = !conferenceChecked || (conferenceChecked && techConferenceField.value.trim() !== '');
+                            const hackathonsFilled = !hackathonChecked || (hackathonChecked && hackathonsField.value.trim() !== '');
+                            const languagesFilled = languagesField.value.trim() !== '';
+            
+                            const atLeastOneRadioChecked = conferenceChecked || hackathonChecked;
+                            const allFieldsFilled = (conferenceChecked || hackathonChecked) && techConferenceFilled && hackathonsFilled && languagesFilled;
+            
+                            return atLeastOneRadioChecked && (allFieldsFilled || (!techConferenceFilled && !hackathonsFilled && !languagesFilled));
+                        }
+
+                        // Function to enable or disable next button based on field conditions in step 2
+                        function toggleNextButtonStep2() {
+                            nextBtnStep2.disabled = !checkAllFieldsFilledStep2();
+                        }
+
+                        // Initial state of the "Next" button in step 2
+                        toggleNextButtonStep2();
+
+                        // Event listeners for radio buttons and text fields in step 2
+                        conferenceYes.addEventListener('change', toggleNextButtonStep2);
+                        hackathonYes.addEventListener('change', toggleNextButtonStep2);
+                        techConferenceField.addEventListener('input', toggleNextButtonStep2);
+                        hackathonsField.addEventListener('input', toggleNextButtonStep2);
+                        languagesField.addEventListener('input', toggleNextButtonStep2);
+
+                        // Event listener for next button in step 2
+                        nextBtnStep2.addEventListener('click', function() {
+                            if (checkAllFieldsFilledStep2()) {
+                                // Proceed to the next step (Step 3) if all conditions are met
+                                document.querySelector('fieldset:nth-child(2)').style.display = 'none'; // Hide step 2
+                                document.querySelector('fieldset:nth-child(3)').style.display = 'block'; // Show step 3
+                            }
+                        });
+                    });
+                
+                </script>
+
 
                 <!-- Step 3: Expectations for the Tech Conference -->
                 <fieldset>
@@ -162,8 +217,8 @@
                     </div>
 
                     <div class="buttons">
-                        <button type="button" id="prev">Previous</button>
-                        <button type="button" id="next">Next</button>
+                        <button type="button" id="prevStep2">Previous</button>
+                        <button type="button" id="nextStep2" disabled>Next</button>
                     </div>
                 </fieldset>
 
