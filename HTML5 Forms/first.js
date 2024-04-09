@@ -169,17 +169,67 @@ document.addEventListener("DOMContentLoaded", function() {
                conferenceGainField.value.trim() !== '';
     }
 
-    // Function to enable or disable the next button based on field conditions in step 3
-    function toggleNextButtonStep3() {
-        nextBtnStep3.disabled = !checkAllFieldsFilledStep3();
-    }
-
-    // Initial state of the next button in step 3
-    toggleNextButtonStep3();
-
     // Event listeners for text fields in step 3
     conferenceGoalsField.addEventListener('input', toggleNextButtonStep3);
     sessionsInterestField.addEventListener('input', toggleNextButtonStep3);
-    conferenceGainField.addEventListener('input', toggleNextButtonStep3); 
+    conferenceGainField.addEventListener('input', toggleNextButtonStep3);
+    
+        // Function to enable or disable the next button based on field conditions in step 3
+        function toggleNextButtonStep3() {
+            nextBtnStep3.disabled = !checkAllFieldsFilledStep3();
+        }
+    
+        // Initial state of the next button in step 3
+        toggleNextButtonStep3();
+        
+        nextBtnStep3.addEventListener('click', function() {
+            if (checkAllFieldsFilledStep3()) {
+                // Proceed to the next step (Step 4) if all conditions are met
+                document.querySelector('fieldset:nth-of-type(3)').style.display = 'none'; // Hide step 3
+                document.querySelector('fieldset:nth-of-type(4)').style.display = 'block'; // Show step 4
+
+                 // Hide the first step if it's still visible
+            document.querySelector('fieldset:nth-of-type(1)').style.display = 'none';
+            }
+        }); 
+
+        // fourth page
+        const agreeTermsCheckbox = document.getElementById('agree-terms');
+    const submitBtn = document.getElementById('submit');
+
+    // Function to check if the terms checkbox is checked
+    function checkTermsAgreed() {
+        return agreeTermsCheckbox.checked;
+    }
+
+    // Function to enable or disable the submit button based on the checkbox state
+    function toggleSubmitButton() {
+        submitBtn.disabled = !checkTermsAgreed();
+    }
+
+    // Initial state of the submit button
+    toggleSubmitButton();
+
+    // Function to show a thank you message and redirect to the first page
+    function showThankYouMessage() {
+    // Show a pop-up window with a thank you message
+    window.alert('Thank you for registering!');
+    
+    // Redirect to the first page after the user clicks "OK"
+    window.location.href = 'first.html';
+}
+
+    // Event listener for checkbox change
+    agreeTermsCheckbox.addEventListener('change', toggleSubmitButton);
+
+    submitBtn.addEventListener('click', function() {
+        if (checkTermsAgreed()) {
+            // Call the function to show the thank you message and redirect
+            showThankYouMessage();
+        } else {
+            // Show an error message if the terms checkbox is not checked
+            window.alert('Please agree to the terms and conditions.');
+        }
+    });
 });
 
